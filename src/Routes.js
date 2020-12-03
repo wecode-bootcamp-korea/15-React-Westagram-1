@@ -15,14 +15,13 @@ import MainMina from "./pages/minahan/Main/Main";
 import LoginKyubin from "./pages/kyubinkim/Login/Login";
 import MainKyubin from "./pages/kyubinkim/Main/Main";
 
-
 class Routes extends Component {
   render() {
     return (
       <Router>
         <Route exact path="/login-kyubin" component={LoginKyubin} />
         <Route exact path="/main-kyubin" component={MainKyubin} />
-       
+
         <Route exact path="/login-junhui" component={LoginJunhui} />
         <Route exact path="/main-junhui" component={MainJunhui} />
 
@@ -31,7 +30,7 @@ class Routes extends Component {
 
         <Route exact path="/login-hayoung" component={LoginHayoung} />
         <Route exact path="/main-hayoung" component={MainHayoung} />
-        
+
         <Route exact path="/login-mina" component={LoginMina} />
         <Route exact path="/main-mina" component={MainMina} />
       </Router>

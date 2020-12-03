@@ -6,7 +6,7 @@
 }
 
 .body {
-  background-color: #fafafa;
+  background-color: $backGroundColor;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -53,20 +53,22 @@ nav {
 #search {
   width: 100%;
   height: 100%;
-  background-color: #fafafa;
-  border: 1px solid #dbdbdb;
+  background-color: $backGroundColor;
+  border: $border;
   border-radius: 3px;
   padding: 9px 7px;
+
+  &::placeholder {
+    color: #ccc;
+    text-align: center;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  
 }
 
-#search::placeholder {
-  color: #ccc;
-  text-align: center;
-}
-
-#search:focus {
-  outline: none;
-}
 
 .navMenu {
   width: 128px;
@@ -90,41 +92,41 @@ main {
 
 article {
   background-color: white;
-  border: 1px solid #dbdbdb;
+  border: $border;
   border-radius: 2px;
-}
 
-.article.header {
-  height: 60px;
-  padding: 0px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .header {
+    height: 60px;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .img {
+    width: 614px;
+    height: 614px;
+  }
 }
 
 .userInfo {
   display: flex;
   align-items: center;
+
+  span.userId {
+    margin-left: 10px;
+  }
 }
 
 .thumbnail {
   width: 42px;
   height: 42px;
-  border: 1px solid #dbdbdb;
+  border: $border;
   border-radius: 50%;
 }
 
 .userId {
   font-weight: 600;
-}
-
-.userInfo span.userId {
-  margin-left: 10px;
-}
-
-.article.img {
-  width: 614px;
-  height: 614px;
 }
 
 .icBar {
@@ -143,10 +145,10 @@ article {
 .commentList {
   list-style-type: none;
   padding-left: 14px;
-}
 
-.commentList li {
-  margin-bottom: 8px;
+  li {
+    margin-bottom: 8px;
+  }
 }
 
 .postTime {
@@ -158,7 +160,7 @@ article {
 .commentForm {
   width: 614px;
   height: 56px;
-  border-top: 1px solid #dbdbdb;
+  border-top: $border;
   margin-top: 8px;
   position: relative;
 }
@@ -169,25 +171,26 @@ article {
   border: none;
   padding: 0 16px;
   background: white;
-}
 
-.commentInput::placeholder {
-  color: #919191;
-}
+  &::placeholder {
+    color: #919191;
+  }
 
-.commentInput:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
+  
 }
 
 .submitBtn {
   border: none;
   background-color: transparent;
   font-weight: 600;
-  color: #b9e0fc;
-}
+  color: $buttonDisable;
 
-.submitBtn:disabled {
-  color: #b9e0fc;
+  &:disabled {
+    color: $buttonDisable;
+  }
 }
 
 .rightFloatingMenu {
@@ -202,23 +205,29 @@ article {
   padding-left: 30px;
   display: flex;
   align-items: center;
+
+  img {
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    padding: 0;
+  }
+
+  div {
+    display: inline-block;
+    margin-left: 14px;
+
+    span {
+      display: block;
+    }
+
+    span.userId {
+      margin-bottom: 4px;
+    }
+  }
 }
-.myProfile img {
-  width: 56px;
-  height: 56px;
-  margin: 0;
-  padding: 0;
-}
-.myProfile div {
-  display: inline-block;
-  margin-left: 14px;
-}
-.myProfile div span {
-  display: block;
-}
-.myProfile div span.userId {
-  margin-bottom: 4px;
-}
+
+
 
 .subText {
   color: #999999;
@@ -267,14 +276,15 @@ ul.storyList .profileText {
 
 .recommendList {
   padding-left: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
 }
 
-.recommendList li {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-}
 .followBtn {
   padding-top: 7px;
   color: #0095f6;
@@ -282,14 +292,15 @@ ul.storyList .profileText {
   font-size: 12px;
   text-align: right;
 }
+
 .profile {
   display: flex;
   align-items: flex-start;
-}
 
-.profile .thumbnail {
-  width: 32px;
-  height: 32px;
+  .thumbnail {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 footer {
