@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+span {
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  margin: 0 10em;
+}
