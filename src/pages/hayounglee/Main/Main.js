@@ -1,11 +1,11 @@
-import React from 'react';
-import './Main.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
+import React from "react";
+import "./Main.scss";
+import "../../../styles/reset.scss";
+import "../../../styles/common.scss";
 
 function MainHayoung() {
   return (
-    <div className='body'>
+    <div className="body">
     <nav>
         <a className="logoText" href="main.html">
             <h2>Westagram</h2>

@@ -1,12 +1,12 @@
-import React from 'react';
-import './Login.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Login.scss";
+import "../../../styles/reset.scss";
+import "../../../styles/common.scss";
+import { Link } from "react-router-dom";
 
 function LoginHayoung() {
   return (
-    <div className='body'>
+    <div className="body">
       <main className="loginWrapper">
         <a className="logoText" href="login.html">
             <h1>Westagram</h1>
