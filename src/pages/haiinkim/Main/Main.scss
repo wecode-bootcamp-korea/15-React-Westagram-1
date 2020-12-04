@@ -1,0 +1,331 @@
+@import"../../../styles/common.scss";
+@import"../../../styles/reset.scss";
+
+nav {
+    width: 100%;
+    height: 77px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: $border;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 0;
+
+    .navLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+
+        i {
+            margin-right: 15px;
+        }
+        
+        .navLogoBar {
+            width: 2px;
+            height: 30px;
+            background-color: black;
+            margin-right: 15px;
+        }
+        
+        .navLogoInsta {
+            font-family: 'Lobster', cursive; 
+        }
+    }   
+    
+    .navSearch {
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 210px;
+            height: 28px;
+            border: $border;
+            border-radius: 3px;
+            background-color: #FAFAFA;
+            padding: 0, 50px;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        input::placeholder {
+            font-family: FontAwesome;
+            color: rgba(0, 0, 0, 0.3);
+            text-align: center; 
+        }
+    }
+       
+    .navIcons {
+        display: flex;
+        align-items: center;
+        font-size: 27px;
+
+        i:first-child, i:nth-child(2) {
+            margin-right: 30px;  
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    margin-top: 160px;
+    
+    .mainFeeds {
+        width: 65%;
+
+        article {
+            width: 630px;
+            height: auto;
+            border: $border;
+            border-radius: 3px;
+            background-color: white;
+            margin-bottom: 40px;
+            margin-left: 110px;
+
+            .mainFeedTitle {
+                width: 630px;
+                height: 60px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+                .mainFeedTitleName {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 20px;
+                        margin: 0 20px;
+                        z-index: 1;
+                    }
+                    
+                    .mainFeedTitleName div {
+                        font-weight: 700;
+                    }
+                }
+                
+                i {
+                    margin-right: 20px;
+                }
+            }
+
+            .mainFeedPic {
+                img {
+                    width: 630px;
+                    height: 460px;
+                }
+            }
+            
+            .mainFeedIcons {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 20px;
+
+                .mainFeedIconsLeft, .mainFeedIconsRight {
+                    font-size: 27px;
+                }
+                
+                .mainFeedIconsLeft i:first-child {
+                    color: red;
+                }
+                
+                .mainFeedIconsLeft i:first-child, .mainFeedIconsLeft i:nth-child(2) {
+                    font-size: 26px;
+                    margin-right: 10px;
+                }     
+            }
+            
+            .mainFeedLike {
+                display: flex;
+                align-items: center;
+                margin-left: 20px;
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    margin-right: 5px;  
+                }
+                
+                .mainFeedLike span:nth-child(2), .mainFeedLike span:nth-child(4) {
+                    font-weight: 700;
+                }
+                
+                .mainFeedLike span:nth-child(3) {
+                    margin-right: 5px;
+                }
+            }
+            
+            .mainFeedContent {
+                margin: 15px 20px;
+
+                span:first-child {
+                    font-weight: 700;
+                    margin-right: 5px;
+                }
+                
+                span:last-child {
+                    margin-left: 5px;
+                    color: rgba(0, 0, 0, 0.4);
+                }
+            }
+
+            .mainFeedComments {
+                list-style: none;
+                padding: 0;
+                margin-left: 20px;
+                margin-bottom: 10px;
+
+                .mainFeedComment {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 5px;
+
+                    .mainFeedCommentList span:first-child{
+                        font-weight: 700;
+                        margin-right: 5px;
+                    }
+                    
+                    .mainFeedCommentLike {
+                        margin-right: 20px;
+
+                        .mainFeedCommentLike i {
+                            margin-left: 50px;
+                        }
+
+                        .mainFeedCommentLike i, .mainFeedCommentLike span {
+                            cursor: pointer;
+                        }
+                    }            
+                }    
+            }
+            
+            form {
+                height: 70px;
+                border-top: $border;;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            input {
+                width: 500px;
+                color: rgba(0, 0, 0, 0.5);
+                margin-left: 20px;
+            }
+
+            input, button {
+                border: none;
+                background-color: white;
+                font-size: 18px;
+            }
+            
+            input:focus, button:focus {
+                outline: none;
+            }
+            
+            button {
+                color: #CAE3FC;
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .mainRight {
+        width: 35%;
+        height: 450px;
+        position: fixed;
+        top: 160px;
+        right: 0;
+
+        .mainRightUser {
+            width: 310px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .mainRightUserLeft {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 30px;
+                    margin-right: 20px;
+                }
+                
+                .mainRightUserLeftProfileId {
+                    font-weight: 700;
+                    margin-bottom: 3px;
+                }
+                
+                .mainRightUserLeftProfileDes {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+            }   
+        }
+        .mainRightStory {
+            width: 280px;
+            height: 220px;
+            border: $border;
+            border-radius: 3px;
+            background-color: white;
+            margin-top: 20px;
+            padding: 10px 15px;
+
+            ul {
+                padding-left: 0;
+
+                .mainRightStoryUpdate {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-bottom: 10px;
+                }
+                
+                .mainRightStoryUpdate img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    margin-right: 10px;  
+                }
+                
+                .mainRightStoryUpdateContentId {
+                    font-weight: 700;
+                }
+                
+                .mainRightStoryUpdateContentTime {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+            }
+    
+            .mainRightStoryTitle {
+                width: 280px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+
+                .mainRightStoryTitle span:first-child {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+    }    
+}
+
+.flipped {
+    color: red;
+}
