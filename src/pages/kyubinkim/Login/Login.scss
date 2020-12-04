@@ -1,0 +1,64 @@
+@import "../../../styles/reset.scss";
+@import "../../../styles/common.scss";
+
+.Loginkyubin {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 350px;
+  height: 380px;
+  background-color: #ffffff;
+  border: $border;
+  border-radius: 1px;
+  margin-top: 100px;
+  position: relative;
+  background-color: $backGroundColor;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-family: $logoFont;
+  }
+
+  #info,
+  #pass {
+    width: 268px;
+    height: 36px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: $border;
+    box-sizing: border-box;
+    flex-direction: row;
+    display: flex;
+    padding: 9px 0px 7px 8px;
+    outline-style: none;
+    input::placeholder {
+      font-size: 14px;
+    }
+  }
+
+  #login-button {
+    width: 268px;
+    height: 30px;
+    margin-left: 40px;
+    margin-top: 10px;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .misspass {
+    font-size: 12px;
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    color: $lostPassword;
+  }
+}
