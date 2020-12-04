@@ -1,0 +1,341 @@
+@import "../../../styles/reset.scss";
+@import "../../../styles/common.scss";
+
+.Mina_Main {
+  body {
+    background-color: $backGroundColor;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+  /* header_navbar */
+  header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+
+  nav input {
+    width: 217px;
+    height: 30px;
+    border: $border;
+    border-radius: 3px;
+    background-color: #fafafa;
+  }
+
+  header nav {
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  header nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 935px;
+    height: 54px;
+  }
+
+  h1 a {
+    font-family: "Lobster", cursive;
+    color: #434141;
+    font-size: 30px;
+  }
+
+  .header_ico a {
+    display: inline-block;
+    margin-left: 22px;
+  }
+
+  .header_ico a:first-child {
+    margin-left: 0;
+  }
+
+  .header_ico img {
+    width: 22px;
+  }
+
+  /* main */
+  /* main_상단 스토리 */
+  .con_box {
+    width: 936px;
+    margin: 0 auto;
+    margin-top: 84px;
+  }
+
+  main {
+    width: 613px;
+    float: left;
+  }
+
+  .story {
+    border: $border;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  .story {
+    overflow: hidden;
+  }
+
+  .story ul {
+    padding: 19px 0 17px 17px;
+  }
+
+  .story li {
+    display: inline-block;
+    margin-right: 27px;
+    text-align: center;
+  }
+
+  .story img {
+    margin-bottom: 10px;
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+  }
+
+  .story li p {
+    color: black;
+    font-size: 13px;
+  }
+
+  /* main_피드내용 */
+  .feed {
+    margin-top: 25px;
+    width: 100%;
+    border: $border;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+  div.feed_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+  }
+
+  .accout_name {
+    margin-left: 17px;
+  }
+
+  .accout_name img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    vertical-align: bottom;
+  }
+
+  .accout_name a {
+    display: inline-block;
+    margin-left: 10px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+  }
+
+  .feed_header button {
+    margin-right: 17px;
+    padding: 0;
+    background: none;
+    border: none;
+    width: 20px;
+    height: 15px;
+  }
+
+  .feed_header button img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .feed_img {
+    width: 100%;
+  }
+
+  /* 댓글아이콘 */
+  .feed_txt_ico img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .feed_txt_ico_left {
+    display: inline-block;
+  }
+
+  .feed_txt_ico_left .margin_side {
+    margin: 0 12px;
+  }
+
+  .feed_txt_ico_left button,
+  a {
+    display: inline-block;
+  }
+
+  button.feed_heart {
+    padding-left: 0;
+  }
+
+  .bookmark {
+    float: right;
+  }
+
+  /* 댓글 */
+  .feed_txt {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 579px;
+    line-height: 25px;
+  }
+
+  .bold {
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .more_comments {
+    padding: 0;
+    color: #8e8e8e;
+    font-size: 16px;
+  }
+
+  .comments_heart {
+    float: right;
+  }
+  .comments_heart img {
+    width: 12px;
+  }
+
+  /* 댓글달기 */
+  .add_comments {
+    border-top: 1px solid #dbdbdb;
+  }
+  .add_comments > div {
+    width: 579px;
+    margin: 0 auto;
+  }
+
+  .add_comments input {
+    margin: 20px 0;
+    padding: 0;
+    border: none;
+    width: 90%;
+    height: 40px;
+  }
+
+  .add_comments input::placeholder {
+    font-size: 17px;
+    color: #dbdbdb;
+  }
+
+  .add_comments button {
+    padding: 0;
+    font-size: 16px;
+    color: $buttonDisable;
+    font-weight: bold;
+  }
+  /* 게시 활성회 되었을때 폰트컬러 #0095F6 */
+
+  /* 오른쪽 메뉴 */
+  .main_right {
+    z-index: 10;
+    position: fixed;
+    right: 17%;
+    top: 7%;
+    width: 280px;
+  }
+
+  .my_accout {
+    position: relative;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  .my_accout img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+  }
+
+  .my_accout a {
+    margin-left: 14px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
+
+  .my_accout button {
+    position: absolute;
+    right: 0;
+    color: $buttonActive;
+    font-weight: bold;
+  }
+
+  .main_right_txt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 23px 0;
+  }
+
+  .main_right_txt span {
+    color: #8e8e8e;
+    font-weight: 500;
+  }
+
+  .main_right_txt a {
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .main_right_recommendation img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+
+  .main_right_recommendation li {
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+  }
+
+  .main_right_recommendation span {
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .main_right_recommendation button {
+    color: $buttonActive;
+    font-weight: bold;
+  }
+  //안맞는 리셋css 다시 리셋하기!
+  li {
+    list-style: none;
+  }
+  ul {
+    margin-left: 0;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+}
