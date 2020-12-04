@@ -3,6 +3,7 @@ import "./MainStory.scss";
 
 class MainStory extends Component {
   render() {
+    const { comment } = this.props.userInfo;
     return (
       <div className="MainStroy">
         <div className="main-story">
@@ -67,9 +68,11 @@ class MainStory extends Component {
           </div>
           <div className="main-feed-comment">
             <ul className="main-feed-comment-ul">
-              <li className="main-feed-comment-ul-li">
-                <span>다람이</span>멋진 착륙 좋아요~!
-              </li>
+              {this.props.userInfo.map((info) => {
+                <li>
+                  <span>다람이</span>&nbsp;{comment}
+                </li>;
+              })}
             </ul>
             <form className="main-feed-comment-form">
               <input

@@ -5,12 +5,16 @@ import MainAside from "../components/MainAside/MainAside";
 import "./Main.scss";
 
 class Main extends Component {
+  state = {
+    userInfo: [{ comment: "멋진 착륙 좋아요" }],
+  };
+
   render() {
     return (
       <>
         <Nav />
         <main className="main">
-          <MainStory />
+          <MainStory userInfo={this.state.userInfo} />
           <MainAside />
         </main>
       </>
