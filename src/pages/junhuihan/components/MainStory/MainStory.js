@@ -1,9 +1,26 @@
 import React, { Component } from "react";
 import "./MainStory.scss";
-
+import MainComment from "../../components/MainComment/MainComment";
 class MainStory extends Component {
+  state = {
+    commentValue: "",
+  };
+  receiveCommentValue = (e) => {
+    const comment = e.target.value;
+    this.setState({ commentValue: comment });
+  };
+  onSubmit = (e) => {
+    e.preventDefault();
+    const comment = this.state.commentValue;
+    comment && this.props.onAdd(comment);
+    this.setState({ commentValue: "" });
+  };
+
+  handleDelete = (comment) => {
+    this.props.onDelete(comment);
+  };
+
   render() {
-    const { comment } = this.props.userInfo;
     return (
       <div className="MainStroy">
         <div className="main-story">
@@ -68,17 +85,21 @@ class MainStory extends Component {
           </div>
           <div className="main-feed-comment">
             <ul className="main-feed-comment-ul">
-              {this.props.userInfo.map((info) => {
-                <li>
-                  <span>다람이</span>&nbsp;{comment}
-                </li>;
-              })}
+              {this.props.userComments.map((comment) => (
+                <MainComment
+                  key={comment.id}
+                  comment={comment}
+                  onDelete={this.handleDelete}
+                />
+              ))}
             </ul>
-            <form className="main-feed-comment-form">
+            <form className="main-feed-comment-form" onSubmit={this.onSubmit}>
               <input
                 type="text"
                 className="main-feed-comment-form-input"
                 placeholder="댓글 달기..."
+                onChange={this.receiveCommentValue}
+                value={this.state.commentValue}
               />
               <button className="main-feed-comment-form-button">게시</button>
             </form>

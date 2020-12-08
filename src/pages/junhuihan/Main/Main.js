@@ -6,7 +6,27 @@ import "./Main.scss";
 
 class Main extends Component {
   state = {
-    userInfo: [{ comment: "멋진 착륙 좋아요" }],
+    userComments: [
+      { id: 1, comment: "멋진 착륙 좋아요" },
+      { id: 2, comment: "멋진 착륙 좋아요" },
+      { id: 3, comment: "멋진 착륙 좋아요" },
+    ],
+  };
+
+  handleAdd = (comment) => {
+    const userComments = [
+      ...this.state.userComments,
+      { id: Date.now(), comment: comment },
+    ];
+    this.setState({ userComments: userComments });
+    console.log(userComments);
+  };
+
+  handleDelete = (comment) => {
+    const userComments = this.state.userComments.filter(
+      (deletedComment) => deletedComment.id !== comment.id
+    );
+    this.setState({ userComments });
   };
 
   render() {
@@ -14,7 +34,12 @@ class Main extends Component {
       <>
         <Nav />
         <main className="main">
-          <MainStory userInfo={this.state.userInfo} />
+          <MainStory
+            userComments={this.state.userComments}
+            commentValue={this.state.commentValue}
+            onAdd={this.handleAdd}
+            onDelete={this.handleDelete}
+          />
           <MainAside />
         </main>
       </>
