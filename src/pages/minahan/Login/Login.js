@@ -14,20 +14,19 @@ class Login extends React.Component {
             productList : [],
         };
     }
-    // 로그인기능연습
-    handleIdChange = (e) =>{
-        this.setState({id : e.target.value});
+   
+    handleInputValueChange = (e) => {
+        const {id, value} = e.target;
+        this.setState({[id] : value});
     }
-
-    handlePasswordChange = (e) =>{
-        this.setState({password : e.target.value});
+    
+    showPassword = () => {
+        this.setState({ hiddenPW : ! this.state.hiddenPW});
     }
 
     render(){
 
-        // console.log  => render/return 사이에!
-        console.log("아이디", this.state.id, "비밀번호", this.state.password);
-
+        
         return(        
             <div className="Mina_Login">  
                 <div className="loginpage_wrap">      
@@ -42,15 +41,20 @@ class Login extends React.Component {
                                 type="text" 
                                 placeholder="전화번호, 사용자 이름 또는 이메일" 
                                 className="input login_id"
-                                onChange = {this.handleIdChange}
+                                onChange = {this.handleInputValueChange}
                                 />
-                                <input 
-                                id = "password"
-                                type="password" 
-                                placeholder="비밀번호" 
-                                className="input login_password" 
-                                onChange = { this.handlePasswordChange}
-                                />   
+                                <div className="passwordWrap">
+                                    <input  
+                                    id = "password"
+                                    type = { hiddenPW ? "password" : "text"}
+                                    placeholder="비밀번호" 
+                                    className="input login_password" 
+                                    onChange = { this.handleInputValueChange}
+                                    />  
+                                    <span className="show" onClick={this.showPassword}>
+                                    {this.state.hiddenPW ? "Show" : "Hide"}
+                                    </span> 
+                                </div>
                             </div>
                             <button className="login_btn" disabled>로그인</button>
                             <div className="or">
@@ -76,4 +80,4 @@ class Login extends React.Component {
         );
     }
 }
-export default Login;
+export default Login; 

@@ -51,6 +51,17 @@
   .login_id {
     margin-bottom: 5px;
   }
+  .passwordWrap {
+    position: relative;
+  }
+  .show {
+    position: absolute;
+    top: 25%;
+    right: 4%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
   button.login_btn {
     margin-top: 17px;
     margin-bottom: 25px;
