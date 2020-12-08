@@ -5,7 +5,29 @@ import '../../../styles/common.scss';
 import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            id : "",
+            password : "",
+            hiddenPW : true,
+            productList : [],
+        };
+    }
+    // 로그인기능연습
+    handleIdChange = (e) =>{
+        this.setState({id : e.target.value});
+    }
+
+    handlePasswordChange = (e) =>{
+        this.setState({password : e.target.value});
+    }
+
     render(){
+
+        // console.log  => render/return 사이에!
+        console.log("아이디", this.state.id, "비밀번호", this.state.password);
+
         return(        
             <div className="Mina_Login">  
                 <div className="loginpage_wrap">      
@@ -15,8 +37,20 @@ class Login extends React.Component {
                         </header>
                         <section className="login_getinfo_wrap">
                             <div className="inputwrap">
-                                <input type="text" placeholder="전화번호, 사용자 이름 또는 이메일" className="input login_id"/>
-                                <input type="password" placeholder="비밀번호" className="input login_password" />   
+                                <input 
+                                id = "id"
+                                type="text" 
+                                placeholder="전화번호, 사용자 이름 또는 이메일" 
+                                className="input login_id"
+                                onChange = {this.handleIdChange}
+                                />
+                                <input 
+                                id = "password"
+                                type="password" 
+                                placeholder="비밀번호" 
+                                className="input login_password" 
+                                onChange = { this.handlePasswordChange}
+                                />   
                             </div>
                             <button className="login_btn" disabled>로그인</button>
                             <div className="or">
