@@ -2,6 +2,12 @@
 @import "../../../styles/common.scss";
 
 .Mainkyubin {
+  .red {
+    color: red;
+  }
+  .black {
+    color: black;
+  }
   height: 1200px;
   background-color: $backGroundColor;
   header {
@@ -256,19 +262,18 @@
           padding-left: 20px;
           list-style: none;
           margin: 0;
-          span:nth-child(1) {
-            font-weight: 600;
-          }
 
-          span:nth-child(2) {
-            margin-left: 10px;
+          .like {
+            position: absolute;
+            right: 30px;
+            margin-top: 3.5px;
             font-size: 12px;
           }
 
           span:nth-child(3) {
             position: absolute;
             right: 20px;
-            margin-top: 3px;
+            margin-top: 3.5px;
             font-size: 12px;
           }
 

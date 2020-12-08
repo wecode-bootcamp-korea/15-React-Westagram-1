@@ -11,42 +11,59 @@ import {
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ListComponent from "./ListComponent";
 
 class MainKyubin extends Component {
   state = {
-    userId: 0,
-    userName: "UserName",
     userComment: "",
     userCommentList: [],
-    like: 0,
-    commentLike: 0,
   };
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/Data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          userCommentList: res.data,
+        });
+      });
+  }
 
   userComment = (e) => {
     this.setState({ userComment: e.target.value });
-    this.setState({ userId: this.state.userCommentList.length + 1 });
   };
 
-  handleCreate = () => {
+  handleCreate = (e) => {
+    e.preventDefault();
+    const { userCommentList, userComment } = this.state;
     if (this.state.userComment !== "") {
       this.setState({
-        userCommentList: this.state.userCommentList.concat([
-          this.state.userComment,
-        ]),
+        userCommentList: [
+          ...userCommentList,
+          {
+            id: userCommentList.length + 1,
+            mention: userComment,
+            inLike: 0,
+            likePosition: false,
+          },
+        ],
       });
       this.setState({ userComment: "" });
     }
-    console.log(this.state);
   };
-
+  handleLike = () => {
+    const { userCommentList } = this.state;
+    this.setState((prev) => ({ ...userCommentList, inLike: prev.inLike + 1 }));
+    this.setState({ likePosition: !this.state.likePosition });
+  };
   handleRemove = (e) => {
-    const copyState = [...this.state.userCommentList];
-    // this.setState({ userId: e.target.userId });
-    // this.setState({
-    //   userCommentList: this.setState.filter(
-    //     (e) => this.state.userId !== e.userId
-    //   ),
-    // });
+    const { userCommentList } = this.state;
+    const nextComment = userCommentList.filter((info) => {
+      return info.id !== e;
+    });
+    this.setState({ userCommentList: nextComment });
   };
   render() {
     return (
@@ -147,31 +164,28 @@ class MainKyubin extends Component {
                 </div>
                 <div className="feeds-howmanylike">좋아요 33,333개</div>
                 <ul id="list" className="feeds-comment">
-                  {this.state.userCommentList.map((comm, idx) => {
+                  {this.state.userCommentList.map((comm) => {
                     return (
-                      <li key={idx}>
-                        <span className="username">{this.state.userName}</span>
-                        {comm}
-                        <button onClick={this.handleRemove}>X</button>
-                      </li>
+                      <ListComponent
+                        key={comm.id}
+                        handleRemove={this.handleRemove}
+                        handleLike={this.handleLike}
+                        id={comm.id}
+                        mention={comm.mention}
+                        inLike={comm.inLike}
+                        likePosition={comm.likePosition}
+                      />
                     );
                   })}
                 </ul>
-                <form
-                  className="box"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                  }}
-                >
+                <form className="box" onSubmit={this.handleCreate}>
                   <input
                     type="text"
                     placeholder="댓글 달기..."
                     value={this.state.userComment}
                     onChange={this.userComment}
                   />
-                  <button type="submit" onClick={this.handleCreate}>
-                    게시
-                  </button>
+                  <button type="submit">게시</button>
                 </form>
               </article>
             </div>
