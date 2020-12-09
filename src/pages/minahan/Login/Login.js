@@ -4,6 +4,8 @@ import '../../../styles/reset.scss';
 import '../../../styles/common.scss';
 import { Link } from 'react-router-dom';
 
+const API = "http://3.35.19.3:8000/account/signin";
+
 class Login extends React.Component {
     constructor(){
         super();
@@ -19,10 +21,48 @@ class Login extends React.Component {
         const {id, value} = e.target;
         this.setState({[id] : value});
     }
-    
-    showPassword = () => {
+
+    showPassword = () =>{
         this.setState({ hiddenPW : ! this.state.hiddenPW});
     }
+
+
+    handleClick = () =>{
+        fetch(API,{
+            method:"POST",
+            body: JSON.stringify({
+                email: this.state.id,
+                password: this.state.password,
+            })
+        })
+        .then( response => response.json())
+        .then(result => {
+            if (result.message === "SUCCESS"){
+                localStorage.setItem("message",result.message);
+                localStorage.setItem("token",result.Authorization);
+            }
+        });
+        
+    }; 
+    // handleClick  = () => {
+    //     fetch(API,{
+    //         method : "POST",
+    //         body : JSON.stringify({
+    //             email : this.state.id,
+    //             password : this.state.password,
+    //         }),
+    //     })
+    //     .then((response) => response.json())
+    //     .then(result => {
+    //         if(result.Authorization){
+    //             localStorage.setItem("tocken", result.Authorization);
+    //         }   
+    //     };
+    // };
+    
+    // showPassword = () => {
+    //     this.setState({ hiddenPW : ! this.state.hiddenPW});
+    // }
 
     render(){
 
@@ -46,17 +86,23 @@ class Login extends React.Component {
                                 <div className="passwordWrap">
                                     <input  
                                     id = "password"
-                                    type = { hiddenPW ? "password" : "text"}
+                                    type = { this.state.hiddenPW ? "password" : "text"}
+                                    // type = "password"
                                     placeholder="비밀번호" 
                                     className="input login_password" 
                                     onChange = { this.handleInputValueChange}
                                     />  
                                     <span className="show" onClick={this.showPassword}>
                                     {this.state.hiddenPW ? "Show" : "Hide"}
-                                    </span> 
-                                </div>
+                                    </span>  
+                                </div>                   
                             </div>
-                            <button className="login_btn" disabled>로그인</button>
+                            <button 
+                            className="login_btn"
+                            onClick ={this.handleClick}
+                            >
+                                로그인
+                            </button>
                             <div className="or">
                                 <div></div>
                                     <p>또는</p>
