@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import MainStory from "../components/MainStory/MainStory";
 import Nav from "../components/Nav/Nav";
 import MainAside from "../components/MainAside/MainAside";
@@ -6,12 +7,18 @@ import "./Main.scss";
 
 class Main extends Component {
   state = {
-    userComments: [
-      { id: 1, comment: "멋진 착륙 좋아요" },
-      { id: 2, comment: "멋진 착륙 좋아요" },
-      { id: 3, comment: "멋진 착륙 좋아요" },
-    ],
+    userComments: [],
   };
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ userComments: res.data });
+      });
+  }
 
   handleAdd = (comment) => {
     const userComments = [
