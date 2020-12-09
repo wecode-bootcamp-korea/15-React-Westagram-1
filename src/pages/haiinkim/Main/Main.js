@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.scss";
 import List from "./List";
-import COMMENT from "./commentData";
+//import COMMENT from "./commentData";
 import { IoLogoInstagram } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { AiFillHome } from "react-icons/ai";
@@ -19,8 +19,20 @@ class Main extends React.Component {
     super(props);
     this.state = {
       inputComment: "",
-      commentList: COMMENT,
+      commentList: [],
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          commentList: res.data,
+        });
+      });
   }
 
   handleValue = (e) => {
