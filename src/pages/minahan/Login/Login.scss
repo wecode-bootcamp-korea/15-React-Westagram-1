@@ -62,16 +62,20 @@
     font-weight: bold;
     font-size: 14px;
   }
-  button.login_btn {
+  button {
     margin-top: 17px;
     margin-bottom: 25px;
     width: 100%;
     height: 33px;
+    background-color: $buttonDisable;
     color: #fff;
     border: none;
     border-radius: 3px;
     font-size: 15px;
     font-weight: 500;
+  }
+  button.active {
+    background-color: $buttonActive;
   }
   .or div {
     display: inline-block;

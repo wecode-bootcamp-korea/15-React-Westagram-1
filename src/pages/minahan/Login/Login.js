@@ -97,10 +97,10 @@ class Login extends React.Component {
                                     </span>  
                                 </div>                   
                             </div>
-                            <button 
-                            className="login_btn"
+                            <button                            
                             onClick ={this.handleClick}
-                            style = {{ backgroundColor : activateBtn ? "#1296f7" : "#bedffc" }}>
+                            className = { activateBtn ? "active" : "" }
+                            >
                                 로그인
                             </button>
                             <div className="or">
