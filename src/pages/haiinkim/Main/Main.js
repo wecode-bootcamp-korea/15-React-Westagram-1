@@ -48,7 +48,7 @@ class Main extends React.Component {
 
   deleteComment = (i) => {
     const { commentList } = this.state;
-    const newCommentList = commentList.filter((comm) => comm.id !== i + 1);
+    const newCommentList = commentList.filter((comm) => comm.id !== i);
     this.setState({
       commentList: newCommentList,
     });
@@ -58,12 +58,12 @@ class Main extends React.Component {
     const { inputComment, commentList } = this.state;
     const colorChange = inputComment.length > 1;
 
-    const addListComment = commentList.map((comm, i) => {
+    const addListComment = commentList.map((comm) => {
       return (
         <List
           comm={comm}
-          i={i}
           key={comm.id}
+          id={comm.id}
           USER={USER}
           deleteComment={this.deleteComment}
         />

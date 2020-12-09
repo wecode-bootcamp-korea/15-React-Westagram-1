@@ -20,9 +20,7 @@ class List extends React.Component {
   };
 
   render() {
-    console.log(this.props);
-
-    const { comm, deleteComment } = this.props;
+    const { comm, id, deleteComment } = this.props;
     const { heartColor } = this.state;
 
     return (
@@ -32,17 +30,14 @@ class List extends React.Component {
           <span>{comm.content}</span>
         </div>
         <div className="mainFeedCommentLike">
-          <span onClick={() => this.coloringHeart(this.props.i)}>
+          <span onClick={() => this.coloringHeart(id)}>
             {heartColor ? (
               <AiOutlineHeart className="navIcon" />
             ) : (
               <AiFillHeart className="navIcon red" />
             )}
           </span>
-          <VscTrash
-            className="navIcon"
-            onClick={() => deleteComment(this.props.i)}
-          />
+          <VscTrash className="navIcon" onClick={() => deleteComment(id)} />
         </div>
       </li>
     );
