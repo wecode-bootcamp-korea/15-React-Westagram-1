@@ -65,7 +65,8 @@ class Login extends React.Component {
     // }
 
     render(){
-
+        const activateBtn = ( this.state.id.length && this.state.password.length) > 0;
+        console.log(activateBtn)
         
         return(        
             <div className="Mina_Login">  
@@ -86,8 +87,7 @@ class Login extends React.Component {
                                 <div className="passwordWrap">
                                     <input  
                                     id = "password"
-                                    type = { this.state.hiddenPW ? "password" : "text"}
-                                    // type = "password"
+                                    type = { this.state.hiddenPW ? "password" : "text"} 
                                     placeholder="비밀번호" 
                                     className="input login_password" 
                                     onChange = { this.handleInputValueChange}
@@ -100,7 +100,7 @@ class Login extends React.Component {
                             <button 
                             className="login_btn"
                             onClick ={this.handleClick}
-                            >
+                            style = {{ backgroundColor : activateBtn ? "#1296f7" : "#bedffc" }}>
                                 로그인
                             </button>
                             <div className="or">
