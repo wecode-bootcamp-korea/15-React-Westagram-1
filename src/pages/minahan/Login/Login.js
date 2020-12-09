@@ -26,6 +26,25 @@ class Login extends React.Component {
         this.setState({ hiddenPW : ! this.state.hiddenPW});
     }
 
+    checkValidation = (e) =>{
+        e.preventDefault();
+        const { id, password } = this.state;   
+        const checkId = id.includes("@");
+        const checkPW = password.length >= 4;
+
+        if (checkId && checkPW) {
+            alert("로그인 성공!")   
+        }
+        if (!checkId){
+            alert(" 아이디는 @을 포함해야 합니다.")
+        }
+        if (!checkPW){
+            alert(" 비밀번호는 4자리 이상 이어야 합니다.")
+        }
+
+
+    }
+
 
     handleClick = () =>{
         fetch(API,{
@@ -37,33 +56,13 @@ class Login extends React.Component {
         })
         .then( response => response.json())
         .then(result => {
-            if (result.message === "SUCCESS"){
-                localStorage.setItem("message",result.message);
-                localStorage.setItem("token",result.Authorization);
+            if(result.Authorization){
+                localStorage.setItem("tocken", result.Authorization);
             }
         });
         
     }; 
-    // handleClick  = () => {
-    //     fetch(API,{
-    //         method : "POST",
-    //         body : JSON.stringify({
-    //             email : this.state.id,
-    //             password : this.state.password,
-    //         }),
-    //     })
-    //     .then((response) => response.json())
-    //     .then(result => {
-    //         if(result.Authorization){
-    //             localStorage.setItem("tocken", result.Authorization);
-    //         }   
-    //     };
-    // };
     
-    // showPassword = () => {
-    //     this.setState({ hiddenPW : ! this.state.hiddenPW});
-    // }
-
     render(){
         const activateBtn = ( this.state.id.length && this.state.password.length) > 0;
         console.log(activateBtn)
@@ -97,9 +96,10 @@ class Login extends React.Component {
                                     </span>  
                                 </div>                   
                             </div>
-                            <button                            
-                            onClick ={this.handleClick}
+                            <button                                                
                             className = { activateBtn ? "active" : "" }
+                            onClick ={this.handleClick}
+                            onClick = { this. checkValidation}
                             >
                                 로그인
                             </button>
