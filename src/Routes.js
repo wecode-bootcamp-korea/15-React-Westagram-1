@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginHaiin from "./pages/haiinkim/Login/Login";
 import MainHaiin from "./pages/haiinkim/Main/Main";
@@ -15,7 +15,7 @@ import MainMina from "./pages/minahan/Main/Main";
 import LoginKyubin from "./pages/kyubinkim/Login/Login";
 import MainKyubin from "./pages/kyubinkim/Main/Main";
 
-class Routes extends Component {
+class Routes extends React.Component {
   render() {
     return (
       <Router>

@@ -38,7 +38,6 @@ h2 {
   flex-direction: column;
 }
 
-
 .loginForm {
   display: flex;
   flex-direction: column;
@@ -63,7 +62,6 @@ input {
   }
 }
 
-
 .loginBtn {
   height: 30px;
   width: 100%;
@@ -74,6 +72,10 @@ input {
   border-radius: 4px;
   font-weight: 600;
   margin: 8px 0;
+
+  &.active {
+    background-color: $buttonActive;
+  }
 }
 
 .findPassword {
@@ -86,4 +88,3 @@ input {
     text-align: center;
   }
 }
-
