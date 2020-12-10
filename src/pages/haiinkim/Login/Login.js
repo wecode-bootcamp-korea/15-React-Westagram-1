@@ -65,7 +65,7 @@ class Login extends React.Component {
     const colorchangeBtn = id.length >= 1 && pw.length >= 1;
 
     return (
-      <div className="Login">
+      <div className="HaiinLogin">
         <div>Westagram</div>
         <form>
           <input

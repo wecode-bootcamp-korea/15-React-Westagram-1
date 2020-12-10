@@ -1,5 +1,5 @@
 import React from "react";
-import List from "./List";
+import List from "./componenets/List";
 //import COMMENT from "./commentData";
 import { IoLogoInstagram } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
@@ -20,6 +20,7 @@ class Main extends React.Component {
     this.state = {
       inputComment: "",
       commentList: [],
+      feedStoryList: [],
     };
   }
 
@@ -29,6 +30,7 @@ class Main extends React.Component {
       .then((res) => {
         this.setState({
           commentList: res.data,
+          feedStoryList: res.feedStory,
         });
       });
   }
@@ -43,16 +45,14 @@ class Main extends React.Component {
   addComment = (e) => {
     e.preventDefault();
     const { inputComment, commentList } = this.state;
+    const newComment = {
+      id: commentList.length + 1,
+      userName: USER,
+      content: inputComment,
+    };
     this.setState({
       inputComment: "",
-      commentList: [
-        ...commentList,
-        {
-          id: commentList.length + 1,
-          userName: USER,
-          content: inputComment,
-        },
-      ],
+      commentList: [...commentList, newComment],
     });
   };
 
@@ -65,11 +65,11 @@ class Main extends React.Component {
   };
 
   render() {
-    const { inputComment, commentList } = this.state;
+    const { inputComment, commentList, feedStoryList } = this.state;
     const colorChange = inputComment.length > 1;
 
     return (
-      <div className="Main">
+      <div className="HaiinMain">
         <nav>
           <div className="navLogo">
             <IoLogoInstagram className="navLogoIcon" />
@@ -91,60 +91,15 @@ class Main extends React.Component {
           <div className="mainFeeds">
             <div className="mainFeedsStory">
               <ul>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
-                <li className="mainFeedsStoryLi">
-                  <img
-                    src="https://post-phinf.pstatic.net/MjAxNzA2MDlfMjE3/MDAxNDk2OTg3ODIzODA5.MyG6GA71J-5DQE2UIusK6Zl9LyekZXHS4vzSkvSKRZkg.mTjbmTr-iLdD3idvOt5haiN90Iw0IV6Lb5hUkomEX7Eg.JPEG/%EA%B3%B5%EC%9C%A0.jpg?type=w1200"
-                    alt="Gong_you"
-                    title="Gong_you"
-                  />
-                  <div className="mainFeedsStoryLiDiv"></div>
-                  <div className="mainFeedsStoryLiName">Gong_you</div>
-                </li>
+                {feedStoryList.map((feed) => {
+                  return (
+                    <li className="mainFeedsStoryLi">
+                      <img src={feed.src} alt={feed.alt} title={feed.title} />
+                      <div className="mainFeedsStoryLiDiv"></div>
+                      <div className="mainFeedsStoryLiName">{feed.name}</div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <article>
