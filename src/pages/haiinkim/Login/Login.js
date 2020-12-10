@@ -1,6 +1,8 @@
-import "./Login.scss";
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./Login.scss";
+
+const API = "http://3.35.19.3:8000";
 
 class Login extends React.Component {
   constructor() {
@@ -12,7 +14,7 @@ class Login extends React.Component {
     };
   }
 
-  handleValue = (e) => {
+  handleUserInfoValue = (e) => {
     const { id, value } = e.target;
     this.setState({
       [id]: value,
@@ -39,7 +41,22 @@ class Login extends React.Component {
       alert("4자리 이상 입력하세요.");
     }
     if (checkId && checkPw) {
-      this.props.history.push("/Main-haiin");
+      fetch(`${API}/account/signin`, {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.id,
+          password: this.state.pw,
+        }),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.message === "SUCCESS") {
+            this.props.history.push("/Main-haiin");
+            localStorage.setItem("Token", result.Authorization);
+          } else {
+            alert("다시 입력하세요.");
+          }
+        });
     }
   };
 
@@ -54,14 +71,14 @@ class Login extends React.Component {
           <input
             className="loginId"
             id="id"
-            onChange={this.handleValue}
+            onChange={this.handleUserInfoValue}
             type="email"
             placeholder="Phone number, username, or email"
           />
           <input
             className="loginPassword"
             id="pw"
-            onChange={this.handleValue}
+            onChange={this.handleUserInfoValue}
             type={hiddenPw ? "password" : "text"}
             placeholder="Password"
           />

@@ -1,5 +1,4 @@
-@import"../../../styles/common.scss";
-@import"../../../styles/reset.scss";
+@import "../../../styles/common.scss";
 
 .Login {
   width: 350px;
@@ -12,18 +11,18 @@
   align-items: center;
 
   div {
-    font-family: 'Lobster', cursive;
+    font-family: "Lobster", cursive;
     font-size: 50px;
     font-weight: 100;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
   }
-  
+
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 20px;
-    
+
     input {
       width: 250px;
       height: 35px;
@@ -47,7 +46,7 @@
       color: rgba(0, 0, 0, 0.3);
       cursor: pointer;
     }
-    
+
     button {
       width: 272px;
       height: 30px;
@@ -65,11 +64,10 @@
       }
     }
   }
-  
+
   .forgetQ {
     font-size: 13px;
     font-weight: 400;
     color: $lostPassword;
   }
 }
-

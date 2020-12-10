@@ -1,5 +1,4 @@
 import React from "react";
-import "./Main.scss";
 import List from "./List";
 //import COMMENT from "./commentData";
 import { IoLogoInstagram } from "react-icons/io";
@@ -11,6 +10,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { BiBookmark } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
+import "./Main.scss";
 
 const USER = "Haiin";
 
@@ -24,9 +24,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/data.json", {
-      method: "GET",
-    })
+    fetch("http://localhost:3000/data/data.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -70,24 +68,12 @@ class Main extends React.Component {
     const { inputComment, commentList } = this.state;
     const colorChange = inputComment.length > 1;
 
-    const addListComment = commentList.map((comm) => {
-      return (
-        <List
-          comm={comm}
-          key={comm.id}
-          id={comm.id}
-          USER={USER}
-          deleteComment={this.deleteComment}
-        />
-      );
-    });
-
     return (
       <div className="Main">
         <nav>
           <div className="navLogo">
             <IoLogoInstagram className="navLogoIcon" />
-            <div className="navLogoBar"></div>
+            <div className="navLogoBar" />
             <div className="navLogoInsta">Westagram</div>
           </div>
           <div className="navSearch">
@@ -216,7 +202,18 @@ class Main extends React.Component {
                     <AiOutlineHeart className="navIcon" />
                   </div>
                 </li>
-                {addListComment}
+                {commentList.map((comm) => {
+                  return (
+                    <List
+                      comm={comm}
+                      key={comm.id}
+                      id={comm.id}
+                      USER={USER}
+                      deleteComment={this.deleteComment}
+                      coloringHeart={this.coloringHeart}
+                    />
+                  );
+                })}
               </ul>
               <form onSubmit={this.addComment}>
                 <input

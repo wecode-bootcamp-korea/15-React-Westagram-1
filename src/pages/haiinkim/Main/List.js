@@ -1,27 +1,26 @@
 import React from "react";
-import "./Main.scss";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { VscTrash } from "react-icons/vsc";
 
 class List extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      heartColor: true,
+      isLiked: false,
     };
   }
 
   coloringHeart = () => {
-    const { heartColor } = this.state;
+    const { isLiked } = this.state;
     this.setState({
-      heartColor: !heartColor,
+      isLiked: !isLiked,
     });
   };
 
   render() {
     const { comm, id, deleteComment } = this.props;
-    const { heartColor } = this.state;
+    const { isLiked } = this.state;
 
     return (
       <li className="mainFeedComment">
@@ -31,10 +30,10 @@ class List extends React.Component {
         </div>
         <div className="mainFeedCommentLike">
           <span onClick={() => this.coloringHeart(id)}>
-            {heartColor ? (
-              <AiOutlineHeart className="navIcon" />
-            ) : (
+            {isLiked ? (
               <AiFillHeart className="navIcon red" />
+            ) : (
+              <AiOutlineHeart className="navIcon" />
             )}
           </span>
           <VscTrash className="navIcon" onClick={() => deleteComment(id)} />
