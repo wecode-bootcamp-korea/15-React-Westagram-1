@@ -1,27 +1,28 @@
+import React,{Component} from 'react';
 
-class Comments extends React.Components{
-  render(){
-    <ul className="coments">
-      <li>
-          <div>
-              <a href="" className="bold">lorrainek727</a>
-              <span>Very lovely</span>
-              <button className="comments_heart">
-                  <img src="./images/minahan/heart.png" alt="좋아요" />
-              </button>
-          </div>
-      </li>
-      <li id = "commentLi">
-          <div>
-              <a href="" className="bold">ohsongmin</a>
-              <span>awesome!!! 👏👏👏👏 🙌</span>
-              <button className="comments_heart">
-                  <img src="./images/minahan/heart.png" alt="좋아요" />
-              </button>
-          </div>
-      </li>
-  </ul> 
+
+
+class Comments extends Component{
+  render(){ 
+     const {comments} = this.props;
+    return( 
+      <ul>
+        {comments.map((comment) =>{
+          return(
+            <li key={comment.id}>
+                <div>
+                    <a href="" className="bold">{comment.userName}</a>
+                    <span>{comment.comment}</span>
+                    <button className="comments_heart">
+                      <img src="./images/minahan/heart.png" alt="좋아요" />
+                    </button>
+                  </div>
+              </li>  
+          )
+        })}
+      </ul> 
+  )
   }
 }
 
-export default Main;
+export default Comments;

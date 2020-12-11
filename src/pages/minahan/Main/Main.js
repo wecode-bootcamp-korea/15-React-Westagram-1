@@ -9,19 +9,48 @@ class Main extends React.Component{
     constructor(){
         super();
         this.state = {
-            comment : "",
-        };
+            comments : [
+                {
+                    id : 1,
+                    userName : "hoonie",
+                    comment : "Very good"
+                },
+                {
+                    id : 2,
+                    userName : "mina",
+                    comment : "Niceeeee!"
+                }
+
+            ],
+            doYouLikeIt : true
+            
+            
+        }
     }
 
     commentValue = (e) => {
         this.setState({ comment : e.target.value })
+         
+       
+
     }
 
-  
+    addComment = ()=> {
+        const newComment = [...this.state.comments,{
+            id : 3,
+            userName : "hoonlee",
+            comment : this.state.comment
+        }]
+        this.setState({ comments : newComment})
+        
+        
+        
+    }
+    
 
     render(){
 
-            console.log(this.state.comment)
+        // console.log(newComment)
 
         return(
             <div className="Mina_Main">
@@ -116,7 +145,7 @@ class Main extends React.Component{
                                         <img src="./images/minahan/dot.png" alt="더보기" />
                                     </button>
                                 </div>
-                                <img src="./images/minahan/feedimg1.jpg" alt="피드이미지" className="feed_img" />
+                                <img src="https://honestlywtf.com/wp-content/uploads/2020/02/sophiesmallhorn4.jpg" alt="피드이미지" className="feed_img" />
                                 <div className="feed_txt">
                                     <div className="feed_txt_ico">
                                         <div className="feed_txt_ico_left">
@@ -137,10 +166,11 @@ class Main extends React.Component{
                                     <p><a href="" className="bold">john.grunwell</a>님 <a href="" className="bold">여러 명</a>이 좋아합니다</p>
                                     <div className="contents">            
                                         <a href="#" className="bold">minimalandcontemporary</a>
-                                        <span>여기는 사용자 피드의 텍스트가 들어가는 자리 입니다.</span>
+                                        <span>New works..!!!!</span>
                                     </div>        
-                                    <button className="more_comments">댓글 53개 모두 보기</button>
-                                    </Comments>                     
+                                    <button className="more_comments">댓글 53개 모두 보기</button>                                  
+                                    <Comments comments={this.state.comments}/>
+                                                               
                                 </div>
                                 <div className="add_comments">
                                     <div>
@@ -149,9 +179,7 @@ class Main extends React.Component{
                                         placeholder="댓글 달기..."
                                         onChange = {this.commentValue}
                                         />
-                                        <button
-                                            onClick = {this.addComment}
-                                        >
+                                        <button onClick = {this.addComment}>
                                             게시
                                         </button>
                                     </div>
