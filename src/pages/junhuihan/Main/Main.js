@@ -24,7 +24,7 @@ class Main extends Component {
       { id: Date.now(), comment: comment },
     ];
     this.setState({ userComments: userComments });
-    console.log(userComments);
+ 
   };
 
   handleDelete = (comment) => {
