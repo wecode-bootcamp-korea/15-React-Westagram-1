@@ -1,4 +1,3 @@
-@import "../../../styles/reset.scss";
 @import "../../../styles/common.scss";
 
 .Loginkyubin {
@@ -15,7 +14,7 @@
   display: flex;
   flex-direction: column;
 
-  p {
+  h1 {
     font-size: 40px;
     text-align: center;
     margin-top: 40px;
@@ -23,8 +22,8 @@
     font-family: $logoFont;
   }
 
-  #info,
-  #pass {
+  .info,
+  .pass {
     width: 268px;
     height: 36px;
     margin-left: 40px;
@@ -42,7 +41,7 @@
     }
   }
 
-  #login-button {
+  .login_button {
     width: 268px;
     height: 30px;
     margin-left: 40px;
@@ -51,6 +50,10 @@
     font-size: 14px;
     color: #fff;
     cursor: pointer;
+    background-color: $buttonDisable;
+  }
+  &.active {
+    background-color: $buttonActive;
   }
 
   .misspass {

@@ -14,8 +14,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import LoginKyubin from "./pages/kyubinkim/Login/Login";
 import MainKyubin from "./pages/kyubinkim/Main/Main";
-// /Users/9bin / Desktop / WECODE / westagram -
-//   project1 / src / pages / kyubinkim / Login / Login.js;
 
 class Routes extends Component {
   render() {
@@ -23,7 +21,6 @@ class Routes extends Component {
       <Router>
         <Route exact path="/login-kyubin" component={LoginKyubin} />
         <Route exact path="/main-kyubin" component={MainKyubin} />
-
         {/* <Route exact path="/login-junhui" component={LoginJunhui} />
         <Route exact path="/main-junhui" component={MainJunhui} />
         <Route exact path="/login-haiin" component={LoginHaiin} />
