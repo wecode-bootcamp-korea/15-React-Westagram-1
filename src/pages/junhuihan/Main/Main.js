@@ -11,12 +11,10 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/data.json", {
-      method: "GET",
-    })
+    fetch("http://localhost:3000/data/userComment.json")
       .then((res) => res.json())
       .then((res) => {
-        this.setState({ userComments: res.data });
+        this.setState({ userComments: res.userComments });
       });
   }
 
@@ -37,19 +35,20 @@ class Main extends Component {
   };
 
   render() {
+    const { userComments, commentValue } = this.state;
     return (
-      <>
+      <div className="Main">
         <Nav />
-        <main className="main">
+        <main className="mainValue">
           <MainStory
-            userComments={this.state.userComments}
-            commentValue={this.state.commentValue}
+            userComments={userComments}
+            commentValue={commentValue}
             onAdd={this.handleAdd}
             onDelete={this.handleDelete}
           />
           <MainAside />
         </main>
-      </>
+      </div>
     );
   }
 }

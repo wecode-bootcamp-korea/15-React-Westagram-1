@@ -20,21 +20,18 @@ class Login extends Component {
 
   linkToMain = () => {
     const { id, pw } = this.state;
-    const checkId = id.includes("@");
-    const checkPw = pw.length >= 5;
-    if (!checkId) {
+    const isCheckId = id.includes("@");
+    const isCheckPw = pw.length >= 5;
+    if (!isCheckId) {
       alert("아이디는 @를 포함한 이메일이어야 합니다.");
     }
-    if (!checkPw) {
+    if (!isCheckPw) {
       alert("비밀번호는 5자 이상입니다.");
     }
-    if (checkId && checkId) {
+    if (isCheckId && isCheckPw) {
       alert("로그인 성공");
       this.props.history.push("/main-junhui");
     }
-    //id @ 안들어 있으면 -> 아이디는 @를 포함한 이메일이어야 함니다.
-    //비밀번호는 5자 이상입니다.
-    //로그인 성공(main으로 이동)
   };
 
   render() {

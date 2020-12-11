@@ -5,10 +5,12 @@ class MainStory extends Component {
   state = {
     commentValue: "",
   };
+
   receiveCommentValue = (e) => {
     const comment = e.target.value;
     this.setState({ commentValue: comment });
   };
+
   onSubmit = (e) => {
     e.preventDefault();
     const comment = this.state.commentValue;
