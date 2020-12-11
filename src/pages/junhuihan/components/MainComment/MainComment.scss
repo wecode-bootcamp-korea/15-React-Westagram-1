@@ -1,0 +1,10 @@
+.MainComment {
+  position: relative;
+
+  .deleteComment {
+    position: absolute;
+    right: 10px;
+    font-weight: none;
+    cursor: pointer;
+  }
+}

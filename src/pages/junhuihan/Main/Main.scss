@@ -1,0 +1,24 @@
+.Main {
+  box-sizing: border-box;
+  background-color: #fafafa;
+
+  ul {
+    list-style-type: none;
+  }
+
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  .mainValue {
+    display: flex;
+    margin: 0 10em;
+  }
+}

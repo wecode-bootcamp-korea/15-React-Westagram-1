@@ -1,0 +1,67 @@
+@import "../../../styles/common.scss";
+
+.Login {
+  width: 21.875em;
+  height: 23.813em;
+  border: 0.1em solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em auto;
+
+  .logo {
+    font-family: "Lobster", cursive;
+    font-size: 3em;
+    margin-top: 0.5em;
+  }
+
+  .login-and-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 17em;
+    height: 5.3em;
+    margin: 2em 0em;
+    margin-bottom: 0.7em;
+  }
+
+  input {
+    border-radius: 0.3em;
+    outline: none;
+    background-color: $backGroundColor;
+    border: 0.1em solid #dbdbdb;
+    font-size: 0.75em;
+    height: 3em;
+    padding: 0.5em;
+    margin-bottom: 0.3em;
+  }
+
+  button {
+    width: 17.05em;
+    height: 2em;
+    line-height: 1em;
+
+    color: #ffffff;
+    font-size: 1em;
+    padding: 0.6em;
+    margin-bottom: 5em;
+    border-style: none;
+    border-radius: 0.3em;
+    outline: none;
+    background-color: $buttonDisable;
+
+    &.active {
+      background-color: $buttonActive;
+    }
+  }
+
+  p {
+    text-align: center;
+    margin-top: 0em;
+    font-size: 0.8rem;
+    a {
+      text-decoration: none;
+      color: $lostPassword;
+    }
+  }
+}
