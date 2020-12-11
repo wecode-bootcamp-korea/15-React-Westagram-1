@@ -1,8 +1,7 @@
 import React from 'react';
-import './Login.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
 import { Link } from 'react-router-dom';
+import './Login.scss';
+import "../../../styles/reset.scss";
 
 const API = "http://3.35.19.3:8000/account/signin";
 
@@ -13,7 +12,6 @@ class Login extends React.Component {
             id : "",
             password : "",
             hiddenPW : true,
-            productList : [],
         };
     }
    
@@ -41,13 +39,9 @@ class Login extends React.Component {
         if (!checkPW){
             alert(" 비밀번호는 4자리 이상 이어야 합니다.")
         }
-
-
     }
-
-
-    handleClick = () =>{
-        fetch(API,{
+    handleLogin = () =>{
+        fetch(API,{ 
             method:"POST",
             body: JSON.stringify({
                 email: this.state.id,
@@ -72,7 +66,7 @@ class Login extends React.Component {
                 <div className="loginpage_wrap">      
                     <div className="login_wrap">
                         <header>
-                            <h1 className="login_h1">Westagram</h1>
+                            <h1>Westagram</h1>
                         </header>
                         <section className="login_getinfo_wrap">
                             <div className="inputwrap">
@@ -91,27 +85,27 @@ class Login extends React.Component {
                                     className="input login_password" 
                                     onChange = { this.handleInputValueChange}
                                     />  
-                                    <span className="show" onClick={this.showPassword}>
+                                    <span className="passwordShow" onClick={this.showPassword}>
                                     {this.state.hiddenPW ? "Show" : "Hide"}
                                     </span>  
                                 </div>                   
                             </div>
                             <button                                                
                             className = { activateBtn ? "active" : "" }
-                            onClick ={this.handleClick}
+                            onClick ={this.handleLogin}
                             onClick = { this. checkValidation}
                             >
                                 로그인
                             </button>
                             <div className="or">
                                 <div></div>
-                                    <p>또는</p>
-                                    <div></div>
-                                </div> 
-                                <a href="#" target="blank" className="facebook_login">
-                                    <img src="./images/minahan/facebook.png" alt="페이스북로고" />
-                                    <span>Facebook으로 로그인</span>
-                                </a>  
+                                <span>또는</span>
+                                <div></div>
+                            </div> 
+                            <a href="#" target="blank" className="facebook_login">
+                                <img src="./images/minahan/facebook.png" alt="페이스북로고" />
+                                <span>Facebook으로 로그인</span>
+                            </a>  
                             <a href="#" target="blank" className="lostpassword">비밀번호를 잊으셨나요?</a>  
                         </section>
                     </div>               
@@ -126,4 +120,5 @@ class Login extends React.Component {
         );
     }
 }
+
 export default Login; 

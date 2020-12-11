@@ -111,6 +111,7 @@
   /* main_피드내용 */
   .feed {
     margin-top: 25px;
+    margin-bottom: 85px;
     width: 100%;
     border: $border;
     border-radius: 3px;
@@ -199,6 +200,7 @@
   }
 
   .bold {
+    margin-right: 6px;
     color: black;
     font-weight: 600;
     font-size: 16px;
@@ -230,7 +232,7 @@
     margin: 20px 0;
     padding: 0;
     border: none;
-    width: 90%;
+    width: 85%;
     height: 40px;
   }
 
@@ -240,14 +242,13 @@
   }
 
   .add_comments button {
+    margin-left: 50px;
     padding: 0;
     font-size: 16px;
     color: $buttonDisable;
     font-weight: bold;
   }
-  /* 게시 활성회 되었을때 폰트컬러 #0095F6 */
 
-  /* 오른쪽 메뉴 */
   .main_right {
     z-index: 10;
     position: fixed;

@@ -1,11 +1,28 @@
 import React from 'react';
+import Comments from './Comments/comments'
 import './Main.scss';
-import '../../../styles/reset.scss';
-import '../../../styles/common.scss';
+
 
 
 class Main extends React.Component{
+
+    constructor(){
+        super();
+        this.state = {
+            comment : "",
+        };
+    }
+
+    commentValue = (e) => {
+        this.setState({ comment : e.target.value })
+    }
+
+  
+
     render(){
+
+            console.log(this.state.comment)
+
         return(
             <div className="Mina_Main">
                 <header>
@@ -47,43 +64,43 @@ class Main extends React.Component{
                                 <ul>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img1.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img1.jpg" alt="스토리" /></span>
                                             <p>dda_sol_</p>
                                         </a>
                                     </li>   
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img2.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img2.jpg" alt="스토리" /></span>
                                             <p>chavely</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img3.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img3.jpg" alt="스토리" /></span>
                                             <p>jo.hany.93</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img4.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img4.jpg" alt="스토리" /></span>
                                             <p>lee_gaheun</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img5.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img5.jpg" alt="스토리" /></span>
                                             <p>welish_be</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img6.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img6.jpg" alt="스토리" /></span>
                                             <p>i_iary2</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" target="blank">
-                                            <span><img src="./images/minahan/img7.jpg" alt="다솔이스토리" /></span>
+                                            <span><img src="./images/minahan/img7.jpg" alt="스토리" /></span>
                                             <p>kmg2604</p>
                                         </a>
                                     </li>                                          
@@ -96,10 +113,10 @@ class Main extends React.Component{
                                         <a href="#">parkondo</a>
                                     </div>
                                     <button>
-                                        <img src="./images/minahan/dot.png" alt="" />
+                                        <img src="./images/minahan/dot.png" alt="더보기" />
                                     </button>
                                 </div>
-                                <img src="./images/minahan/feedimg1.jpg" alt="" className="feed_img" />
+                                <img src="./images/minahan/feedimg1.jpg" alt="피드이미지" className="feed_img" />
                                 <div className="feed_txt">
                                     <div className="feed_txt_ico">
                                         <div className="feed_txt_ico_left">
@@ -123,31 +140,20 @@ class Main extends React.Component{
                                         <span>여기는 사용자 피드의 텍스트가 들어가는 자리 입니다.</span>
                                     </div>        
                                     <button className="more_comments">댓글 53개 모두 보기</button>
-                                    <ul className="coments">
-                                        <li>
-                                            <div>
-                                                <a href="" className="bold">lorrainek727</a>
-                                                <span>Very lovely</span>
-                                                <button className="comments_heart">
-                                                    <img src="./images/minahan/heart.png" alt="좋아요" />
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <a href="" className="bold">ohsongmin</a>
-                                                <span>awesome!!! 👏👏👏👏 🙌</span>
-                                                <button className="comments_heart">
-                                                    <img src="./images/minahan/heart.png" alt="좋아요" />
-                                                </button>
-                                            </div>
-                                        </li>
-                                    </ul>                       
+                                    </Comments>                     
                                 </div>
                                 <div className="add_comments">
                                     <div>
-                                        <input type="text" placeholder="댓글 달기..." />
-                                        <button>게시</button>
+                                        <input 
+                                        type="text" 
+                                        placeholder="댓글 달기..."
+                                        onChange = {this.commentValue}
+                                        />
+                                        <button
+                                            onClick = {this.addComment}
+                                        >
+                                            게시
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +162,7 @@ class Main extends React.Component{
                     </main>
                     <div className="main_right">
                         <div className="my_accout">
-                            <img src="./images/minahan/mina.jpeg" alt="" />
+                            <img src="./images/minahan/mina.jpeg" alt="프로필이미지" />
                             <a href="#">mina_.__._</a>
                             <button>전환</button>
                         </div>
@@ -166,32 +172,32 @@ class Main extends React.Component{
                         </div>
                         <ul className="main_right_recommendation">
                             <li>
-                                <img src="./images/minahan/img9.jpg" alt="" />
+                                <img src="./images/minahan/img9.jpg" alt="taeheech님의 프로필이미지" />
                                 <span>taeheech</span>
                                 <button>팔로우</button>
                             </li>
                             <li>
-                                <img src="./images/minahan/img10.jpg" alt="" />
+                                <img src="./images/minahan/img10.jpg" alt="mindong_mindong님의 프로필 이미지" />
                                 <span>mindong_mindong</span>
                                 <button>팔로우</button>
                             </li>
                             <li>
-                                <img src="https://i.pinimg.com/474x/51/b0/dd/51b0dd2d8a9d1013c593e07340e555c4.jpg" alt="" />
+                                <img src="https://i.pinimg.com/474x/51/b0/dd/51b0dd2d8a9d1013c593e07340e555c4.jpg" alt="aammyy_lee님의 프로필사진" />
                                 <span>aammyy_lee</span>
                                 <button>팔로우</button>
                             </li>
                             <li>
-                                <img src="https://i.pinimg.com/474x/3c/a2/89/3ca289cf9b103865600f24c7b370a842.jpg" alt="" />
+                                <img src="https://i.pinimg.com/474x/3c/a2/89/3ca289cf9b103865600f24c7b370a842.jpg" alt="hoonie_.__님의 프로필사진" />
                                 <span>hoonie_.__</span>
                                 <button>팔로우</button>
                             </li>
                             <li>
-                                <img src="https://i.pinimg.com/474x/9b/9f/ff/9b9fff6f165695da92a8b1e159b6e640.jpg" alt="" />
+                                <img src="https://i.pinimg.com/474x/9b/9f/ff/9b9fff6f165695da92a8b1e159b6e640.jpg" alt="Wecode님의 프로필 사진" />
                                 <span>Wecode</span>
                                 <button>팔로우</button>
                             </li>
                             <li>
-                                <img src="https://i.pinimg.com/474x/81/5e/71/815e715a4bcab20579df8d132b7ed2c4.jpg" alt="" />
+                                <img src="https://i.pinimg.com/474x/81/5e/71/815e715a4bcab20579df8d132b7ed2c4.jpg" alt="dlrudgns님의 프로필사진" />
                                 <span>dlrudgns</span>
                                 <button>팔로우</button>
                             </li>
