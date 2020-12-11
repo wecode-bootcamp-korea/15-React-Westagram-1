@@ -41,23 +41,27 @@ class Login extends React.Component {
       alert("4자리 이상 입력하세요.");
     }
     if (checkId && checkPw) {
-      fetch(`${API}/account/signin`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.state.id,
-          password: this.state.pw,
-        }),
-      })
-        .then((response) => response.json())
-        .then((result) => {
-          if (result.message === "SUCCESS") {
-            this.props.history.push("/Main-haiin");
-            localStorage.setItem("Token", result.Authorization);
-          } else {
-            alert("다시 입력하세요.");
-          }
-        });
+      this.handleLogin();
+    } else {
+      alert("다시 입력하세요.");
     }
+  };
+
+  handleLogin = () => {
+    fetch(`${API}/account/signin`, {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.message === "SUCCESS") {
+          this.props.history.push("/Main-haiin");
+          localStorage.setItem("Token", result.Authorization);
+        }
+      });
   };
 
   render() {
@@ -69,14 +73,12 @@ class Login extends React.Component {
         <div>Westagram</div>
         <form>
           <input
-            className="loginId"
             id="id"
             onChange={this.handleUserInfoValue}
             type="email"
             placeholder="Phone number, username, or email"
           />
           <input
-            className="loginPassword"
             id="pw"
             onChange={this.handleUserInfoValue}
             type={hiddenPw ? "password" : "text"}

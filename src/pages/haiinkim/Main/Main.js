@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./componenets/List";
+import Feedstory from "./componenets/Feedstory";
 //import COMMENT from "./commentData";
 import { IoLogoInstagram } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
@@ -92,13 +93,7 @@ class Main extends React.Component {
             <div className="mainFeedsStory">
               <ul>
                 {feedStoryList.map((feed) => {
-                  return (
-                    <li className="mainFeedsStoryLi">
-                      <img src={feed.src} alt={feed.alt} title={feed.title} />
-                      <div className="mainFeedsStoryLiDiv"></div>
-                      <div className="mainFeedsStoryLiName">{feed.name}</div>
-                    </li>
-                  );
+                  return <Feedstory feed={feed} />;
                 })}
               </ul>
             </div>
