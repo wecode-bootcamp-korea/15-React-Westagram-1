@@ -1,0 +1,73 @@
+@import "../../../styles/common.scss";
+
+.HaiinLogin {
+  width: 350px;
+  height: 378px;
+  border: $border;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    font-family: "Lobster", cursive;
+    font-size: 50px;
+    font-weight: 100;
+    margin-bottom: 30px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+
+    input {
+      width: 250px;
+      height: 35px;
+      border-radius: 3px;
+      border: $border;
+      background-color: $backGroundColor;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.3);
+      padding: 0 10px;
+      margin-bottom: 7px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    span {
+      position: relative;
+      top: -33px;
+      left: 220px;
+      color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    button {
+      width: 272px;
+      height: 30px;
+      color: white;
+      background-color: $buttonDisable;
+      font-size: 15px;
+      border: none;
+      border-radius: 3px;
+      margin-top: 5px;
+      margin-bottom: 40px;
+      cursor: pointer;
+
+      &.activate {
+        background-color: $buttonActive;
+      }
+    }
+  }
+
+  .forgetQ {
+    font-size: 13px;
+    font-weight: 400;
+    color: $lostPassword;
+  }
+}
