@@ -1,0 +1,135 @@
+@import "../../../styles/common.scss";
+
+.Mina_Login {
+  .loginpage_wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+
+    .login_wrap {
+      margin-bottom: 10px;
+      width: 100%;
+      height: 424px;
+      background-color: #fff;
+      border: $border;
+      text-align: center;
+      /* 헤더 */
+      h1 {
+        margin: 35px 0 52px 0;
+        font-family: $logoFont;
+        font-size: 44px;
+        font-weight: 100;
+      }
+
+      /* section */
+      .login_getinfo_wrap {
+        width: 310px;
+        display: inline-block;
+
+        input {
+          padding: 9px 8px 7px;
+          width: 100%;
+          height: 40px;
+          background-color: #fafafa;
+          border: 1px solid #dbdbdb;
+          box-sizing: border-box;
+          border-radius: 3px;
+        }
+        .login_id {
+          margin-bottom: 5px;
+        }
+        .passwordWrap {
+          position: relative;
+        }
+        .passwordShow {
+          position: absolute;
+          top: 25%;
+          right: 4%;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 14px;
+        }
+        button {
+          margin-top: 17px;
+          margin-bottom: 25px;
+          width: 100%;
+          height: 33px;
+          background-color: $buttonDisable;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        button.active {
+          background-color: $buttonActive;
+        }
+
+        .or div {
+          display: inline-block;
+          width: 120px;
+          height: 2px;
+          background-color: #dbdbdb;
+          vertical-align: middle;
+        }
+        .or span {
+          margin: 0 18px;
+          color: #8e8c8c;
+          font-size: 14px;
+          font-weight: 700;
+          display: inline-block;
+        }
+
+        a {
+          display: block;
+          color: $lostPassword;
+          text-decoration: none;
+        }
+
+        .facebook_login {
+          padding: 3px 0;
+          margin-top: 30px;
+          margin-bottom: 13px;
+          font-size: 16px;
+          font-weight: bold;
+
+          img {
+            width: 18px;
+          }
+          span {
+            vertical-align: middle;
+          }
+        }
+
+        .lostpassword {
+          font-size: 13px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  /* footer */
+  .assign {
+    width: 100%;
+    height: 75px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    text-align: center;
+
+    .login_assign_wrap {
+      line-height: 77px;
+
+      span {
+        font-weight: inherit;
+      }
+      a {
+        color: #0095f6;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
+  }
+}
